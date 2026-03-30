@@ -1,13 +1,11 @@
 CREATE TABLE crops (
   crop_id NUMBER PRIMARY KEY,
   crop_name VARCHAR2(100) NOT NULL,
-  category VARCHAR2(100)
 );
 
 CREATE TABLE locations (
   location_id NUMBER PRIMARY KEY,
   country VARCHAR2(100) NOT NULL,
-  region VARCHAR2(100)
 );
 
 CREATE TABLE yearly_conditions (
