@@ -1,5 +1,6 @@
 ## New ER
-<img width="888" height="566" alt="image" src="https://github.com/user-attachments/assets/8559b60f-edc8-45ec-bfdc-b410e91c5eed" />
+<img width="937" height="598" alt="image" src="https://github.com/user-attachments/assets/1503c518-f8a0-4c7c-a395-f31708bfba94" />
+
 
 ### User Groups
 - **Farms / Farmers:** Enter crop and location data; view yield predictions
