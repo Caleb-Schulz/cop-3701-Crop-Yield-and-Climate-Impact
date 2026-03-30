@@ -12,4 +12,5 @@ The goal of this project is to create a database that stores crop yield data, cl
   https://www.kaggle.com/datasets/patelris/crop-yield-prediction-dataset
 
 ## Final ER Diagram
-<img width="888" height="566" alt="image" src="https://github.com/user-attachments/assets/8587e48f-ae7b-45e1-ad8b-84e0e79dbf7a" />
+<img width="937" height="598" alt="image" src="https://github.com/user-attachments/assets/ec1ded68-f8e8-47de-9996-f074834bb86a" />
+
