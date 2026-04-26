@@ -14,3 +14,4 @@ The goal of this project is to create a database that stores crop yield data, cl
 ## Final ER Diagram
 <img width="937" height="598" alt="image" src="https://github.com/user-attachments/assets/ec1ded68-f8e8-47de-9996-f074834bb86a" />
 
+## Features
