@@ -2,6 +2,8 @@
 # pip install streamlit pandas oracledb
 # streamlit run magdalene_symanski_parte/app.py
 
+# Data output updated by Caleb to make more appealing
+
 import streamlit as st
 import oracledb
 import pandas as pd
@@ -23,6 +25,8 @@ def init_db():
 def get_connection():
     init_db()
     return oracledb.connect(user=DB_USER, password=DB_PASS, dsn=DB_DSN)
+
+st.set_page_config(layout="wide")
 
 st.title("Crop Yield/Climate Impact Dataset")
 # st.subheader("crud duds")
@@ -56,8 +60,8 @@ if choice == "Crops Grown by Country":
             """, [country])
 
             rows = cur.fetchall()
-            for r in rows:
-                st.write(r)
+            df = pd.DataFrame(rows, columns=["Crop Name"])
+            st.dataframe(df)
 
             cur.close()
             conn.close()
@@ -67,7 +71,7 @@ if choice == "Crops Grown by Country":
 # ~~~~~~ TOP YIELDING CROPS BY COUNTRY (JOIN query 2)
 
 elif choice == "Top Crop by Country":
-    st.write("### Top Crop by Country (measured by hectogram per hectare)")
+    st.write("### Top Crop by Country (hg/ha)")
 
     try:
         conn = get_connection()
@@ -87,8 +91,8 @@ elif choice == "Top Crop by Country":
         """)
 
         rows = cur.fetchall()
-        for r in rows:
-            st.write(r)
+        df = pd.DataFrame(rows, columns=["Country", "Crop Name", "Yield (hg/ha)"])
+        st.dataframe(df, use_container_width=True)
 
         cur.close()
         conn.close()
@@ -98,7 +102,7 @@ elif choice == "Top Crop by Country":
 # ~~~~~~ BEST YEAR FOR EACH CROP (JOIN query 3)
 
 elif choice == "Crop Best Years":
-    st.write("### Best Years for Each Crop (measured by hectogram per hectare")
+    st.write("### Best Years for Each Crop (hg/ha)")
 
     try:
         conn = get_connection()
@@ -116,8 +120,8 @@ elif choice == "Crop Best Years":
         """)
 
         rows = cur.fetchall()
-        for r in rows:
-            st.write(r)
+        df = pd.DataFrame(rows, columns=["Crop Name", "Year", "Yield (hg/ha)"])
+        st.dataframe(df, use_container_width=True)
 
         cur.close()
         conn.close()
@@ -127,7 +131,7 @@ elif choice == "Crop Best Years":
 # ~~~~~~ RAINFALL (in) vs. CROP YIELD (hgha) (join query 4)
 
 elif choice == "Compare Rainfall vs. Yield":
-    st.write("### Rainfall (inches) vs. Yield (hectogram per hectare)")
+    st.write("### Rainfall (in) vs. Yield (hg/ha)")
 
     try:
         conn = get_connection()
@@ -141,8 +145,11 @@ elif choice == "Compare Rainfall vs. Yield":
         """)
 
         rows = cur.fetchall()
-        for r in rows:
-            st.write(r)
+        df = pd.DataFrame(rows, columns=["Year", "Yield (hg/ha)", "Avg Rainfall"])
+        # too laggy made static image
+        # st.scatter_chart(data=df, x="Avg Rainfall", y="Yield (hg/ha)", color="Year", height=600)
+        st.image("magdalene_symanski_parte/graphs/Rainfall_vs._Yield.png", caption="Rainfall vs. Yield Analysis", use_container_width=True)
+        st.dataframe(df, use_container_width=True)
 
         cur.close()
         conn.close()
@@ -152,7 +159,7 @@ elif choice == "Compare Rainfall vs. Yield":
 # ~~~~~~ PESTICIDE USE (gal) vs. CROP YIELD (hgha) (JOIN query 5)
 
 elif choice == "Compare Pesticide vs. Yield":
-    st.write("### Pesticide (gallons) vs. Yield (hectograms per hectare)")
+    st.write("### Pesticide (gal) vs. Yield (hg/ha)")
 
     try:
         conn = get_connection()
@@ -166,8 +173,11 @@ elif choice == "Compare Pesticide vs. Yield":
         """)
 
         rows = cur.fetchall()
-        for r in rows:
-            st.write(r)
+        df = pd.DataFrame(rows, columns=["Year", "Yield (hg/ha)", "Pesticide (tonnes)"])
+        # too laggy made static image
+        # st.scatter_chart(data=df, x="Pesticide (tonnes)", y="Yield (hg/ha)",color="Year", height=600)
+        st.image("magdalene_symanski_parte/graphs/Pesticide_vs._Yield.png", caption="Pesticide vs. Yield Analysis", use_container_width=True)
+        st.dataframe(df, use_container_width=True)
 
         cur.close()
         conn.close()

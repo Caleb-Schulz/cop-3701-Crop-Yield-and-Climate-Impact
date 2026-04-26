@@ -17,7 +17,7 @@ The goal of this project is to create a database that stores crop yield data, cl
 ## How to Use This Repo
 Step 1: Use the “create_db.sql” to create the database
 Step 2: Use the dataload.py to populate the database with crop data
-Step 3: Change the line 8 to line 13 in magdalene_symanski_parte/app.py and add your database credentials
+Step 3: Change the line 11 to line 16 in magdalene_symanski_parte/app.py and add your database credentials
 Step 4: run the app.py using the commands below
 - pip install streamlit pandas oracledb
 - streamlit run magdalene_symanski_parte/app.py
