@@ -1,7 +1,10 @@
-# Hey,
+# To run 
+# pip install streamlit pandas oracledb
+# streamlit run magdalene_symanski_parte/app.py
 
 import streamlit as st
 import oracledb
+import pandas as pd
 
 LIB_DIR = r"C:\oracle\instantclient\instantclient_23_0"
 
@@ -22,7 +25,7 @@ def get_connection():
     return oracledb.connect(user=DB_USER, password=DB_PASS, dsn=DB_DSN)
 
 st.title("Crop Yield/Climate Impact Dataset")
-st.subheader("crud duds")
+# st.subheader("crud duds")
 
 menu = ["Crops Grown by Country",
       "Top Crop by Country",
