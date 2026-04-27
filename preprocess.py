@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Creating crop data frame
-df = pd.read_csv("raw_crop_data.csv")
+df = pd.read_csv("data/raw_crop_data.csv")
 # Used to test df
 # print(df.head())
 # print(df.columns)
